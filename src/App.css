@@ -1,3 +1,125 @@
+@import "tailwindcss";
+:root {
+  /* 🌿 Light Theme Palette */
+  --clr-green-pale: #d8f3dc;   /* Soft background */
+  --clr-green-soft: #b7e4c7;
+  --clr-green-medium: #95d5b2;
+  --clr-green-vibrant: #74c69d;
+  --clr-green-bold: #52b788;
+  --clr-green-deep: #2d6a4f;
+  --clr-green-dark: #1b4332;
+  --clr-blue-dark: #0d1b2a;
+
+  /* 🎨 Semantic Assignments */
+  --clr-bg-main: var(--clr-green-pale);
+  --clr-bg-card: var(--clr-green-soft);
+  --clr-bg-navbar: var(--clr-green-medium);
+  --clr-text-main: var(--clr-blue-dark);
+  --clr-text-heading: var(--clr-green-dark);
+  --clr-button-primary: var(--clr-green-bold);
+  --clr-button-hover: var(--clr-green-deep);
+  --clr-border: var(--clr-green-deep);
+  --clr-link: var(--clr-green-vibrant);
+
+  /* 🖋 Typography */
+  --font-family-base: 'Inter', sans-serif;
+
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-md: 1.125rem;    /* 18px */
+  --font-size-lg: 1.5rem;      /* 24px */
+  --font-size-xl: 2rem;        /* 32px */
+  --font-size-xxl: 3rem;       /* 48px */
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --line-height-base: 1.5;
+  --line-height-heading: 1.2;
+
+  /* 📏 Spacing System */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 2rem;      /* 32px */
+  --spacing-xl: 4rem;      /* 64px */
+
+  /* 🟦 Borders & Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --border-light: 1px solid var(--clr-border-light);
+  --border-dark: 1px solid var(--clr-border-dark);
+
+  /* 🌫️ Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+
+  /* 🕒 Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-slow: 0.4s ease-in-out;
+
+  /* 🪜 Z-Index Layers */
+  --z-header: 1000;
+  --z-modal: 1050;
+  --z-dropdown: 1100;
+
+  /* 📐 Layout Sizes */
+  --max-width: 1200px;
+  --container-padding: 1rem;
+
+  /* 📱 Responsive Breakpoints */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* ===== Utility Classes ===== */
+.text-center {
+  text-align: center;
+}
+
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+
+.p-lg {
+  padding: var(--spacing-lg);
+}
+
+.radius-md {
+  border-radius: var(--radius-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* ===== Global Styles ===== */
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  color: var(--clr-text-main);
+  background-color: var(--clr-bg-main) ; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* ===== App Layout ===== */
 .app-container {
   height: 100vh;
   width: 100vw;
@@ -5,16 +127,23 @@
   flex-direction: column;
 }
 
+/* ===== Navbar ===== */
 .navbar-container {
-  position: fixed;
+  position: fixed ; 
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: var(--z-header);
   display: flex;
   justify-content: center;
+  background-color: var(--clr-bg-navbar);
+  box-shadow: var(--shadow-md);
+  color: var(--clr-green-dark);
+}
+.navbar-container * {
+  color: inherit; /* All children inherit this */
 }
 
-
+/* ===== Routes Content ===== */
 .routes-container {
   flex-grow: 1;
   height: calc(100vh - 56px);
@@ -22,5 +151,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 56px;
 }
-
